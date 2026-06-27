@@ -1,4 +1,4 @@
-import {
+﻿import {
   BadgeCheck,
   BarChart3,
   BriefcaseBusiness,
@@ -16,6 +16,9 @@ import {
   Store,
   UsersRound,
 } from "lucide-react";
+/** Tao URL anh phu hop ca khi chay local lan GitHub Pages. */
+const asset = (path: string) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
 import type {
   GalleryImage,
   NavItem,
@@ -24,6 +27,7 @@ import type {
   ProofPoint,
   Service,
 } from "../types/site";
+
 
 export const company = {
   name: "DST Group",
@@ -39,8 +43,8 @@ export const company = {
   established: "06/03/2020",
   license: "5701747448",
   capital: "10.000.000.000 VNĐ",
-  logo: "/assets/logos/dst-logo.png",
-  logoMedia: "/assets/logos/dst-marketing-media.png",
+  logo: asset("assets/logos/dst-logo.png"),
+  logoMedia: asset("assets/logos/dst-marketing-media.png"),
   facebook: "https://www.facebook.com/share/1EvWCZnNBi/?mibextid=wwXIfr",
 };
 
@@ -189,25 +193,25 @@ export const featuredCases: PartnerCase[] = [
     title: "Valley Beach Club",
     description:
       "Quản trị fanpage, viết content, thiết kế hình ảnh và chạy ADS phủ sóng thương hiệu tại Quảng Ninh.",
-    image: "/assets/portfolio/profile-p68.webp",
+    image: asset("assets/portfolio/profile-p68.webp"),
   },
   {
     title: "Hồ Cô Tiên",
     description:
       "Chụp ảnh sản phẩm, quay clip review, xây dựng và quản trị fanpage, thiết kế hình ảnh chuyên nghiệp.",
-    image: "/assets/portfolio/profile-p70.webp",
+    image: asset("assets/portfolio/profile-p70.webp"),
   },
   {
     title: "Bird's Nest Cafe",
     description:
       "Tư vấn truyền thông, xây dựng fanpage, thiết kế logo, bộ nhận diện và quảng cáo marketing online đa kênh.",
-    image: "/assets/portfolio/profile-p70.webp",
+    image: asset("assets/portfolio/profile-p70.webp"),
   },
   {
     title: "Diamond Palace - Hạ Long",
     description:
       "Tư vấn truyền thông và chạy ADS cho sự kiện triển lãm tiệc cưới tại trung tâm tiệc cưới Diamond Palace.",
-    image: "/assets/portfolio/profile-p71.webp",
+    image: asset("assets/portfolio/profile-p71.webp"),
   },
 ];
 
@@ -215,49 +219,49 @@ export const galleryImages: GalleryImage[] = [
   {
     title: "Valley Beach Club",
     category: "Sự kiện",
-    src: "/assets/project-photos/profile-p68-357.webp",
+    src: asset("assets/project-photos/profile-p68-357.webp"),
     alt: "Không gian sự kiện Valley Beach Club",
   },
   {
     title: "Valley Beach Club",
     category: "Hoạt động thực tế",
-    src: "/assets/project-photos/profile-p68-413.webp",
+    src: asset("assets/project-photos/profile-p68-413.webp"),
     alt: "Khách hàng tham gia sự kiện Valley Beach Club",
   },
   {
     title: "Hồ Cô Tiên",
     category: "Nhà hàng",
-    src: "/assets/project-photos/profile-p70-552.webp",
+    src: asset("assets/project-photos/profile-p70-552.webp"),
     alt: "Hình ảnh nhà hàng Hồ Cô Tiên",
   },
   {
     title: "Hồ Cô Tiên",
     category: "Không gian F&B",
-    src: "/assets/project-photos/profile-p70-534.webp",
+    src: asset("assets/project-photos/profile-p70-534.webp"),
     alt: "Không gian nội thất nhà hàng Hồ Cô Tiên",
   },
   {
     title: "Diamond Palace",
     category: "Trung tâm tiệc cưới",
-    src: "/assets/project-photos/profile-p71-454.webp",
+    src: asset("assets/project-photos/profile-p71-454.webp"),
     alt: "Hình ảnh Diamond Palace Hạ Long",
   },
   {
     title: "Taxi Xanh Đông Bắc",
     category: "Dự án thương hiệu",
-    src: "/assets/project-photos/profile-p73-002.webp",
+    src: asset("assets/project-photos/profile-p73-002.webp"),
     alt: "Hình ảnh dự án Taxi Xanh Đông Bắc",
   },
   {
     title: "Valley Beach Club",
     category: "Thiết kế truyền thông",
-    src: "/assets/project-photos/profile-p69-016.webp",
+    src: asset("assets/project-photos/profile-p69-016.webp"),
     alt: "Ấn phẩm truyền thông Valley Beach Club",
   },
   {
     title: "Valley Beach Club",
     category: "Thiết kế truyền thông",
-    src: "/assets/project-photos/profile-p69-699.webp",
+    src: asset("assets/project-photos/profile-p69-699.webp"),
     alt: "Ấn phẩm chương trình Chi Đô Thôi Valley Beach Club",
   },
 ];
@@ -266,25 +270,25 @@ export const documentImages: GalleryImage[] = [
   {
     title: "Cana Beer",
     category: "Portfolio",
-    src: "/assets/portfolio/event-p03.webp",
+    src: asset("assets/portfolio/event-p03.webp"),
     alt: "Trang dự án Cana Beer của DST Group",
   },
   {
     title: "Gói dịch vụ quản trị",
     category: "Bảng dịch vụ",
-    src: "/assets/portfolio/event-p36.webp",
+    src: asset("assets/portfolio/event-p36.webp"),
     alt: "Bảng dịch vụ quản trị fanpage và xây kênh TikTok",
   },
   {
     title: "Thiết kế - Quảng cáo - Website",
     category: "Bảng dịch vụ",
-    src: "/assets/portfolio/event-p37.webp",
+    src: asset("assets/portfolio/event-p37.webp"),
     alt: "Bảng dịch vụ thiết kế, quảng cáo online và website",
   },
   {
     title: "Quyền lợi TikTok Shop",
     category: "TikTok Shop Partner",
-    src: "/assets/portfolio/profile-p17.webp",
+    src: asset("assets/portfolio/profile-p17.webp"),
     alt: "Nội dung quyền lợi TikTok Shop Partner tại DST Group",
   },
 ];
@@ -295,3 +299,7 @@ export const serviceGroups = [
   { label: "ADS", icon: BarChart3 },
   { label: "Booking", icon: Handshake },
 ];
+
+
+
+
