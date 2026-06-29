@@ -1,5 +1,5 @@
+import { BarChart3, Film, Handshake, LayoutTemplate } from "lucide-react";
 import type { ReactNode } from "react";
-import { serviceGroups } from "../data/site";
 import { AnimatedHeading } from "./AnimatedHeading";
 import { FadeIn } from "./FadeIn";
 import { GradientIcon } from "./GradientIcon";
@@ -14,14 +14,29 @@ const asset = (path: string) =>
 const heroVisuals = [
   asset("assets/project-photos/profile-p68-357.webp"),
   asset("assets/project-photos/profile-p70-552.webp"),
-  asset("assets/project-photos/profile-p69-016.webp"),
 ];
 
-const serviceSummaries = [
-  "Quay chụp, thiết kế và xây chất liệu truyền thông.",
-  "Profile, proposal và tài liệu hỗ trợ tư vấn.",
-  "Theo dõi ngân sách, tệp khách hàng và hiệu quả.",
-  "Định hướng điểm chạm cho nhà hàng, khách sạn, sự kiện.",
+const heroCapabilities = [
+  {
+    label: "Hình ảnh & nội dung",
+    description: "Quay chụp, thiết kế, bài viết và video dùng được ngay cho social.",
+    icon: Film,
+  },
+  {
+    label: "Hồ sơ năng lực",
+    description: "Profile, proposal và tài liệu tư vấn giúp khách hiểu nhanh năng lực.",
+    icon: LayoutTemplate,
+  },
+  {
+    label: "Quảng cáo đa kênh",
+    description: "Thiết lập, theo dõi ngân sách và tối ưu theo mục tiêu chiến dịch.",
+    icon: BarChart3,
+  },
+  {
+    label: "Setup truyền thông F&B",
+    description: "Định hướng điểm chạm cho nhà hàng, khách sạn và sự kiện.",
+    icon: Handshake,
+  },
 ];
 
 export function HeroSection({ nav }: HeroSectionProps) {
@@ -85,29 +100,39 @@ export function HeroSection({ nav }: HeroSectionProps) {
             </div>
 
             <FadeIn delay={1000} duration={1000}>
-              <div className="grid gap-4 lg:max-w-[480px]">
+              <div className="grid gap-4 lg:max-w-[500px]">
                 <div className="overflow-hidden rounded-2xl border border-white/16 bg-white/10 p-2 backdrop-blur">
                   <img
                     alt="Chất liệu dự án DST Group"
-                    className="h-[230px] w-full rounded-xl object-cover md:h-[300px] lg:h-[260px]"
+                    className="h-[220px] w-full rounded-xl object-cover md:h-[280px] lg:h-[240px]"
                     src={heroVisuals[1]}
                   />
                 </div>
 
                 <div className="rounded-2xl border border-white/16 bg-white/10 p-5 backdrop-blur md:p-6">
-                  <p className="text-lg font-light leading-relaxed text-white md:text-xl">
-                    Một đầu mối triển khai hình ảnh, nội dung, quảng cáo và các
-                    điểm chạm hỗ trợ bán hàng.
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#f4c77f]">
+                    Một đầu mối triển khai
+                  </p>
+                  <h2 className="mt-3 text-2xl font-semibold leading-tight text-white md:text-3xl">
+                    Từ hình ảnh đầu tiên đến{" "}
+                    <span className="bg-gradient-to-r from-[#f7c76f] via-white to-[#82dce3] bg-clip-text text-transparent">
+                      nội dung hỗ trợ bán hàng.
+                    </span>
+                  </h2>
+                  <p className="mt-4 max-w-md text-sm leading-6 text-white/72 md:text-base md:leading-7">
+                    DST kết nối media, nội dung, quảng cáo và tài liệu tư vấn trong
+                    cùng một kế hoạch để thương hiệu xuất hiện rõ ràng hơn ở mọi điểm
+                    chạm.
                   </p>
                 </div>
 
-                <div className="grid gap-3 sm:grid-cols-2">
-                  {serviceGroups.map((item, index) => (
+                <div className="grid gap-3">
+                  {heroCapabilities.map((item) => (
                     <div
-                      className="min-w-0 rounded-xl border border-white/14 bg-white/9 p-4 backdrop-blur md:p-5"
+                      className="rounded-xl border border-white/14 bg-white/9 p-4 backdrop-blur md:p-5"
                       key={item.label}
                     >
-                      <div className="flex items-start gap-3">
+                      <div className="flex items-start gap-4">
                         <GradientIcon
                           className="size-10"
                           icon={item.icon}
@@ -115,11 +140,11 @@ export function HeroSection({ nav }: HeroSectionProps) {
                           tone="dark"
                         />
                         <div className="min-w-0">
-                          <h3 className="text-[15px] font-semibold leading-5 text-white">
+                          <h3 className="text-base font-semibold leading-6 text-white">
                             {item.label}
                           </h3>
-                          <p className="mt-2 text-sm leading-6 text-white/72">
-                            {serviceSummaries[index]}
+                          <p className="mt-1.5 text-sm leading-6 text-white/72">
+                            {item.description}
                           </p>
                         </div>
                       </div>
