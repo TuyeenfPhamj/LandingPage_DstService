@@ -1,4 +1,4 @@
-import { Palette, RadioTower, Sparkles } from "lucide-react";
+import { ClipboardCheck, Film, TrendingUp } from "lucide-react";
 import { services } from "../data/site";
 import { GradientIcon } from "./GradientIcon";
 import { SectionHeading } from "./SectionHeading";
@@ -7,29 +7,37 @@ import { ServiceCard } from "./ServiceCard";
 export function ServicesSection() {
   return (
     <section
-      className="section-shell brand-gradient py-20 text-white md:py-28"
+      className="section-shell brand-gradient py-24 text-white md:py-28"
       id="dich-vu"
     >
       <div className="content-width">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <SectionHeading
-            description="Các gói dịch vụ có thể triển khai độc lập hoặc kết hợp thành một hệ thống marketing trọn gói theo mục tiêu kinh doanh."
-            eyebrow="Dịch vụ"
+            description="Mỗi doanh nghiệp có một điểm cần ưu tiên khác nhau: có bên cần hình ảnh, có bên cần nội dung đều đặn, có bên cần tài liệu bán hàng hoặc định hướng triển khai trước khi đầu tư ngân sách."
+            eyebrow="Dịch vụ DST triển khai"
             tone="dark"
-            title="Từ quảng cáo, nội dung, media đến TikTok Shop và setup ngành dịch vụ."
+            title={
+              <>
+                DST giúp doanh nghiệp chọn đúng hạng mục cần triển khai trước, rồi
+                mở rộng khi kênh bắt đầu{" "}
+                <span className="bg-gradient-to-r from-[#f7c76f] via-white to-[#82dce3] bg-clip-text text-transparent">
+                  tạo chuyển đổi.
+                </span>
+              </>
+            }
           />
           <div className="grid gap-3 sm:grid-cols-3">
             {[
-              { label: "Chiến lược", icon: Sparkles },
-              { label: "Sáng tạo", icon: Palette },
-              { label: "Tăng trưởng", icon: RadioTower },
+              { label: "Định hướng", icon: ClipboardCheck },
+              { label: "Sản xuất nội dung", icon: Film },
+              { label: "Triển khai & tối ưu", icon: TrendingUp },
             ].map((item) => (
               <div
-                className="rounded-xl border border-white/15 bg-white/12 p-4 text-white shadow-[0_18px_50px_rgba(0,0,0,0.16)] backdrop-blur"
+                className="rounded-xl border border-white/15 bg-white/10 p-4 text-white backdrop-blur"
                 key={item.label}
               >
-                <GradientIcon className="size-11" icon={item.icon} label={item.label} />
-                <p className="mt-4 text-sm font-semibold">{item.label}</p>
+                <GradientIcon className="size-10" icon={item.icon} label={item.label} tone="dark" />
+                <p className="mt-4 text-sm font-semibold leading-5">{item.label}</p>
               </div>
             ))}
           </div>

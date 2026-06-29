@@ -25,6 +25,7 @@ export interface ProofPoint {
 
 export interface PartnerCase {
   title: string;
+  scope: string;
   description: string;
   image: string;
 }
@@ -32,6 +33,7 @@ export interface PartnerCase {
 export interface GalleryImage {
   title: string;
   category: string;
+  detail?: string;
   src: string;
   alt: string;
 }

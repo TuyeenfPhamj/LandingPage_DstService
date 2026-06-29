@@ -31,15 +31,24 @@ export function Footer() {
         <div>
           <h2 className="text-base font-semibold">Thông tin</h2>
           <div className="mt-4 grid gap-3 text-sm text-white/68">
-            <a className="inline-flex items-center gap-3 hover:text-white" href={`tel:${company.phone.replaceAll(" ", "")}`}>
+            <a
+              className="inline-flex items-center gap-3 hover:text-white"
+              href={`tel:${company.phone.replaceAll(" ", "")}`}
+            >
               <Phone aria-hidden="true" className="size-4" />
               {company.phone}
             </a>
-            <a className="inline-flex items-center gap-3 hover:text-white" href={`mailto:${company.email}`}>
+            <a
+              className="inline-flex items-center gap-3 hover:text-white"
+              href={`mailto:${company.email}`}
+            >
               <Mail aria-hidden="true" className="size-4" />
               {company.email}
             </a>
-            <a className="inline-flex items-center gap-3 hover:text-white" href={`https://${company.website}`}>
+            <a
+              className="inline-flex items-center gap-3 hover:text-white"
+              href={`https://${company.website}`}
+            >
               <Globe2 aria-hidden="true" className="size-4" />
               {company.website}
             </a>

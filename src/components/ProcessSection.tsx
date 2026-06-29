@@ -7,27 +7,30 @@ export function ProcessSection() {
       <div className="content-width">
         <SectionHeading
           align="center"
-          description="Quy trình được chia thành các bước rõ ràng để đội ngũ và khách hàng cùng theo dõi tiến độ, chi phí và kết quả."
+          description="DST Group đánh giá hiện trạng doanh nghiệp trước khi đề xuất hạng mục ưu tiên, kế hoạch triển khai và chỉ số cần theo dõi. Khách hàng luôn nắm rõ việc đang thực hiện, mục tiêu của từng hạng mục và sản phẩm được bàn giao."
           eyebrow="Quy trình"
           title={
             <>
-              Làm rõ mục tiêu trước khi triển khai, tối ưu trong suốt{" "}
+              DST không triển khai theo cảm tính. Mỗi kế hoạch bắt đầu từ việc
+              làm rõ{" "}
               <span className="rounded-xl bg-gradient-to-r from-[#e09d37] to-[#245354] bg-clip-text text-transparent">
-                chiến dịch.
+                mục tiêu kinh doanh cần đạt.
               </span>
             </>
           }
         />
 
-        <div className="mx-auto mt-8 grid max-w-4xl gap-3 sm:grid-cols-3">
-          {["Rõ mục tiêu", "Đúng kênh", "Tối ưu liên tục"].map((item) => (
-            <div
-              className="rounded-xl border border-[#183f40]/10 bg-white/80 px-5 py-4 text-center text-sm font-semibold text-[#244d4e] shadow-sm"
-              key={item}
-            >
-              {item}
-            </div>
-          ))}
+        <div className="mx-auto mt-8 flex max-w-4xl flex-wrap justify-center gap-3">
+          {["Đánh giá hiện trạng", "Kế hoạch ưu tiên", "Triển khai + báo cáo"].map(
+            (item) => (
+              <span
+                className="rounded-full border border-[#183f40]/12 bg-white/70 px-5 py-2.5 text-sm font-semibold text-[#244d4e]"
+                key={item}
+              >
+                {item}
+              </span>
+            ),
+          )}
         </div>
 
         <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -36,12 +39,12 @@ export function ProcessSection() {
               className="grid min-h-[214px] grid-cols-[72px_1fr] rounded-xl border border-[#183f40]/10 bg-white p-5 shadow-sm"
               key={step.step}
             >
-              <div className="flex size-14 items-center justify-center rounded-xl bg-gradient-to-br from-[#e09d37] via-[#c98727] to-[#20484a] text-lg font-semibold text-white">
+              <div className="flex size-14 items-center justify-center rounded-xl border border-[#e09d37]/28 bg-[#f8ead3] text-lg font-semibold text-[#9a651f]">
                 {step.step}
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-[#173f40]">{step.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-[#5e7070]">
+                <p className="mt-3 text-[15px] leading-7 text-[#5e7070]">
                   {step.description}
                 </p>
               </div>

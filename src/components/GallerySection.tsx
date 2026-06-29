@@ -24,13 +24,20 @@ export function GallerySection() {
   }, [selected]);
 
   return (
-    <section className="section-shell bg-white py-20 md:py-28" id="thu-vien">
+    <section className="section-shell bg-white pb-24 pt-20 md:pb-28 md:pt-28" id="thu-vien">
       <div className="content-width">
         <SectionHeading
           align="center"
-          description="Hình ảnh dự án, bảng dịch vụ và các hạng mục năng lực được chọn lọc để khách hàng nắm nhanh phạm vi triển khai."
+          description="Khám phá các hạng mục hình ảnh, ấn phẩm, nội dung và tài liệu truyền thông DST đã triển khai để hình dung rõ hơn cách từng giải pháp được ứng dụng cho doanh nghiệp."
           eyebrow="Thư viện"
-          title="Dự án, bảng dịch vụ và năng lực triển khai của DST Group."
+          title={
+            <>
+              Xem các hạng mục DST đã triển khai trước khi chọn{" "}
+              <span className="bg-gradient-to-r from-[#e09d37] to-[#245354] bg-clip-text text-transparent">
+                giải pháp phù hợp.
+              </span>
+            </>
+          }
         />
 
         <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
@@ -40,9 +47,10 @@ export function GallerySection() {
               key={`${image.title}-${image.src}`}
             >
               <button
-                aria-label={`Xem lớn ${image.title}`}
+                aria-label={`Phóng lớn sản phẩm ${image.title}`}
                 className="group block w-full text-left"
                 onClick={() => setSelected(image)}
+                title="Xem chi tiết"
                 type="button"
               >
                 <div className="relative flex aspect-[16/11] items-center justify-center bg-[#e9e2d4] p-3">
@@ -56,30 +64,36 @@ export function GallerySection() {
                     <Maximize2 aria-hidden="true" className="size-4" />
                   </span>
                 </div>
-                <div className="grid min-h-[104px] gap-2 p-5">
-                  <p className="text-xs font-semibold uppercase text-[#b87924]">
+                <div className="grid min-h-[136px] gap-2 p-5">
+                  <p className="text-[13px] font-bold uppercase text-[#b87924]">
                     {image.category}
                   </p>
-                  <h3 className="text-lg font-semibold text-[#173f40]">{image.title}</h3>
+                  <h3 className="text-lg font-semibold leading-6 text-[#173f40]">
+                    {image.title}
+                  </h3>
+                  {image.detail ? (
+                    <p className="text-sm leading-6 text-[#5e7070]">{image.detail}</p>
+                  ) : null}
                 </div>
               </button>
             </article>
           ))}
         </div>
 
-        <div className="mt-10 rounded-2xl border border-[#183f40]/10 bg-[#f6f3ec] p-4 md:p-5">
-          <div className="mb-5 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+        <div className="mt-12 rounded-2xl border border-[#183f40]/10 bg-[#f3efe6] p-4 md:p-6">
+          <div className="mb-5 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="text-sm font-semibold uppercase text-[#b87924]">
-                Hồ sơ & bảng dịch vụ
+                Hồ sơ năng lực & tài liệu dịch vụ
               </p>
               <h3 className="mt-2 text-2xl font-semibold text-[#173f40]">
-                Tài liệu năng lực trình bày trong khung riêng để dễ đọc.
+                Tham khảo phạm vi dịch vụ, hồ sơ năng lực và tài liệu DST sử dụng
+                trong quá trình tư vấn, triển khai.
               </h3>
             </div>
             <p className="max-w-md text-sm leading-6 text-[#5e7070]">
-              Các ảnh dạng bảng hoặc trang tài liệu được giữ nguyên tỉ lệ và có
-              nút phóng lớn.
+              Nhấp vào từng tài liệu để xem chi tiết hạng mục, phạm vi triển khai
+              và nội dung bàn giao.
             </p>
           </div>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -89,9 +103,10 @@ export function GallerySection() {
                 key={`${image.title}-${image.src}`}
               >
                 <button
-                  aria-label={`Xem lớn ${image.title}`}
+                  aria-label={`Phóng lớn tài liệu ${image.title}`}
                   className="group block w-full text-left"
                   onClick={() => setSelected(image)}
+                  title="Xem chi tiết"
                   type="button"
                 >
                   <div className="relative flex aspect-[16/10] items-center justify-center bg-[#e9e2d4] p-3">
@@ -106,10 +121,10 @@ export function GallerySection() {
                     </span>
                   </div>
                   <div className="grid min-h-[96px] gap-2 p-5">
-                    <p className="text-xs font-semibold uppercase text-[#b87924]">
+                    <p className="text-[13px] font-bold uppercase text-[#b87924]">
                       {image.category}
                     </p>
-                    <h3 className="text-lg font-semibold text-[#173f40]">
+                    <h3 className="text-lg font-semibold leading-6 text-[#173f40]">
                       {image.title}
                     </h3>
                   </div>

@@ -1,4 +1,4 @@
-﻿import {
+import {
   BadgeCheck,
   BarChart3,
   BriefcaseBusiness,
@@ -9,14 +9,17 @@
   Film,
   Globe2,
   Handshake,
+  LayoutTemplate,
+  Mail,
   Megaphone,
   Palette,
+  Phone,
   RadioTower,
   Sparkles,
   Store,
   UsersRound,
 } from "lucide-react";
-/** Tao URL anh phu hop ca khi chay local lan GitHub Pages. */
+/** Tạo URL ảnh phù hợp cả khi chạy local lẫn GitHub Pages. */
 const asset = (path: string) =>
   `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
 import type {
@@ -28,21 +31,20 @@ import type {
   Service,
 } from "../types/site";
 
-
 export const company = {
   name: "DST Group",
   fullName: "Công ty Cổ Phần Tập Đoàn DST",
-  slogan: "Dịch vụ tận tâm - Nâng tầm thương hiệu",
+  slogan: "Truyền thông rõ ràng - Thương hiệu dễ được chọn.",
   phone: "0328 247 888",
   representative: "Mr Thương",
   email: "info@dstgroup.vn",
   website: "dstgroup.vn",
   headquarters:
     "7-9/1 Nguyễn An Ninh, Phường Yết Kiêu, Thành phố Hạ Long, Tỉnh Quảng Ninh",
-  serviceAddress: "Số 2 - Ô 1 Ngõ 16 Cao Thắng, P. Hà Lầm, Quảng Ninh",
+  serviceAddress: "Số 2, ô 1, ngõ 16 Cao Thắng, phường Hà Lầm, Quảng Ninh",
   established: "06/03/2020",
   license: "5701747448",
-  capital: "10.000.000.000 VNĐ",
+  capital: "10 tỷ đồng",
   logo: asset("assets/logos/dst-logo.png"),
   logoMedia: asset("assets/logos/dst-marketing-media.png"),
   facebook: "https://www.facebook.com/share/1EvWCZnNBi/?mibextid=wwXIfr",
@@ -58,132 +60,132 @@ export const navItems: NavItem[] = [
 
 export const services: Service[] = [
   {
-    title: "ADS đa kênh",
+    title: "Quản trị Fanpage & TikTok",
     description:
-      "Triển khai quảng cáo Facebook, Google, YouTube, Zalo, Instagram và TikTok theo từng mục tiêu truyền thông.",
-    items: ["Tối ưu chi phí", "Tệp khách hàng", "Báo cáo chiến dịch"],
-    icon: Megaphone,
-  },
-  {
-    title: "TikTok Shop Partner",
-    description:
-      "Tư vấn, setup và phát triển gian hàng TikTok Shop; kết nối KOL/KOC, livestream và tối ưu vận hành.",
-    items: ["Setup gian hàng", "TikTok Ads", "Livestream"],
-    icon: Store,
-  },
-  {
-    title: "Content & Fanpage",
-    description:
-      "Lập kế hoạch nội dung, viết bài, thiết kế hình ảnh, đăng tải và quản trị fanpage theo tháng.",
-    items: ["15 bài/tháng", "Concept tháng", "Video reel"],
+      "DST xây dựng lịch nội dung, chủ đề, hình ảnh và video phù hợp để Fanpage và TikTok duy trì tần suất xuất hiện, tăng độ nhận diện và kết nối với khách hàng.",
+    items: ["Lịch nội dung", "Video ngắn"],
     icon: ClipboardList,
   },
   {
-    title: "Design & Branding",
+    title: "TikTok Shop & vận hành kênh",
     description:
-      "Thiết kế logo, bộ nhận diện, poster, voucher, tờ rơi, standee, menu và ấn phẩm cho chiến dịch.",
-    items: ["Logo", "Ấn phẩm in ấn", "Poster sự kiện"],
+      "DST hỗ trợ xây dựng gian hàng, chuẩn bị nội dung bán hàng, triển khai livestream và kết nối KOL/KOC phù hợp với mục tiêu của thương hiệu.",
+    items: ["Gian hàng", "Livestream"],
+    icon: Store,
+  },
+  {
+    title: "Thiết kế & nhận diện thương hiệu",
+    description:
+      "Thiết kế logo, bộ nhận diện và hệ thống ấn phẩm truyền thông giúp thương hiệu xuất hiện nhất quán trên online lẫn offline.",
+    items: ["Logo", "Ấn phẩm"],
     icon: Palette,
   },
   {
-    title: "Studio & Media",
+    title: "Quảng cáo đa kênh",
     description:
-      "Chụp ảnh sản phẩm, quay TVC, video quảng cáo, recap sự kiện, intro giới thiệu và nội dung 4K.",
-    items: ["Chụp ảnh", "TVC", "Recap sự kiện"],
+      "DST thiết lập và theo dõi quảng cáo theo mục tiêu trên Facebook, Google, Zalo, TikTok và các tệp remarketing nhằm tối ưu hiệu quả ngân sách.",
+    items: ["Facebook", "Remarketing"],
+    icon: Megaphone,
+  },
+  {
+    title: "Hình ảnh & media",
+    description:
+      "Sản xuất hình ảnh, TVC, video quảng cáo, recap sự kiện và nội dung media phục vụ truyền thông, bán hàng, tuyển dụng hoặc ra mắt sản phẩm.",
+    items: ["Quay chụp", "Video"],
     icon: Camera,
   },
   {
-    title: "Website & Landing Page",
+    title: "Website & Landing page",
     description:
-      "Thiết kế landing page, website doanh nghiệp, bài viết chuẩn SEO và chăm sóc website theo nhu cầu.",
-    items: ["Landing page", "Website cơ bản", "SEO web"],
+      "Thiết kế landing page, website doanh nghiệp và nội dung chuẩn SEO để khách hàng có điểm chạm chính thức, dễ tra cứu và dễ chuyển đổi.",
+    items: ["Landing page", "SEO web"],
     icon: Globe2,
   },
   {
-    title: "Booking & KOC/KOL",
+    title: "Hồ sơ năng lực",
     description:
-      "Kết nối nhân sự sáng tạo, idol livestream, KOL/KOC và đối tác cùng tệp khách hàng cho chiến dịch.",
-    items: ["Booking", "KOL/KOC", "Creator"],
-    icon: UsersRound,
+      "Biên tập profile, catalogue, proposal và tài liệu giới thiệu để làm rõ năng lực, dịch vụ và điểm khác biệt khi làm việc với đối tác.",
+    items: ["Profile", "Proposal"],
+    icon: LayoutTemplate,
   },
   {
-    title: "Setup Restaurant - Hotel",
+    title: "Setup truyền thông nhà hàng - khách sạn",
     description:
-      "Định hướng, truyền thông và triển khai kế hoạch setup cho nhà hàng, khách sạn, du thuyền, trung tâm sự kiện.",
-    items: ["Nhà hàng", "Khách sạn", "Trung tâm sự kiện"],
+      "Tư vấn định hướng thương hiệu, truyền thông khai trương và kế hoạch vận hành marketing cho nhà hàng, khách sạn, du thuyền và trung tâm sự kiện.",
+    items: ["F&B", "Sự kiện"],
     icon: Building2,
   },
 ];
 
 export const proofPoints: ProofPoint[] = [
-  { value: "2020", label: "thành lập tại Quảng Ninh" },
-  { value: "5+", label: "năm kinh nghiệm Digital Marketing & Multimedia" },
-  { value: "MCN & TSP", label: "đối tác chính thức của TikTok" },
-  { value: "10 tỷ", label: "vốn điều lệ doanh nghiệp" },
+  { value: "01 đầu mối", label: "từ định hướng đến triển khai" },
+  { value: "5+ năm", label: "triển khai Digital Marketing & Multimedia" },
+  { value: "TikTok & Social", label: "năng lực triển khai nội dung và vận hành kênh" },
+  { value: "10 tỷ đồng", label: "vốn điều lệ" },
 ];
 
 export const processSteps: ProcessStep[] = [
   {
     step: "01",
-    title: "Nghiên cứu",
+    title: "Đánh giá hiện trạng",
     description:
-      "Phân tích thị trường, sản phẩm, đối thủ, phân khúc giá và mục tiêu truyền thông của từng doanh nghiệp.",
+      "DST đánh giá sản phẩm, thị trường, kênh đang có, đối thủ và mục tiêu kinh doanh trước khi đề xuất giải pháp.",
   },
   {
     step: "02",
     title: "Lập kế hoạch",
     description:
-      "Xây dựng plan theo tháng hoặc theo chiến dịch, xác định nội dung chủ lực, kênh triển khai và chỉ số cần tối ưu.",
+      "DST xác định hạng mục ưu tiên, thông điệp chính, kênh triển khai, lịch nội dung và ngân sách dự kiến.",
   },
   {
     step: "03",
     title: "Sản xuất",
     description:
-      "Thiết kế hình ảnh, viết content, quay dựng video, chuẩn bị landing page, fanpage hoặc gian hàng TikTok Shop.",
+      "DST triển khai quay chụp, thiết kế, viết nội dung, dựng video và chuẩn bị các tài sản truyền thông cần thiết cho chiến dịch.",
   },
   {
     step: "04",
     title: "Triển khai",
     description:
-      "Chạy quảng cáo, quản trị kênh, livestream, booking KOC/KOL và phối hợp truyền thông online đa kênh.",
+      "DST triển khai đăng tải nội dung, vận hành kênh, quảng cáo, livestream hoặc kết nối KOL/KOC theo kế hoạch đã thống nhất.",
   },
   {
     step: "05",
     title: "Tối ưu",
     description:
-      "Theo dõi hiệu quả, tối ưu chi phí, điều chỉnh thông điệp và cập nhật nội dung để tăng tỉ lệ chuyển đổi.",
+      "DST theo dõi hiệu quả, điều chỉnh nội dung, tối ưu ngân sách và cải thiện tỷ lệ chuyển đổi trong quá trình triển khai.",
   },
   {
     step: "06",
     title: "Báo cáo",
     description:
-      "Báo cáo và nghiệm thu theo tuần, tháng hoặc quý với từng hạng mục đã triển khai.",
+      "DST tổng hợp kết quả, nghiệm thu các hạng mục đã triển khai và đề xuất ưu tiên cho giai đoạn tiếp theo.",
   },
 ];
 
 export const whyChooseUs = [
   {
-    title: "Đội ngũ trẻ, chuyên nghiệp",
+    title: "Đội ngũ marketing - media đồng hành theo mục tiêu kinh doanh",
     description:
-      "DST Group định hướng đội ngũ marketing và kinh doanh làm việc có trách nhiệm, tận tâm và rõ mục tiêu.",
+      "DST Group làm việc theo mục tiêu đã thống nhất, chủ động phối hợp và giữ nhịp triển khai rõ ràng với khách hàng.",
     icon: Sparkles,
   },
   {
-    title: "Chi phí gọn cho một đội marketing",
+    title: "Một đầu mối cho nhiều hạng mục",
     description:
-      "Một đầu mối có thể xử lý fanpage, content, thiết kế, video, quảng cáo, website và tư vấn truyền thông.",
+      "DST Group kết nối tư vấn, sản xuất media, nội dung, thiết kế, quảng cáo và vận hành kênh vào một quy trình triển khai rõ ràng.",
     icon: ChartNoAxesCombined,
   },
   {
     title: "Quy trình minh bạch",
     description:
-      "Các chiến dịch được chia theo giai đoạn từ nghiên cứu, triển khai đến tối ưu và nghiệm thu định kỳ.",
+      "Mỗi chiến dịch được chia theo giai đoạn, có đầu việc cụ thể và báo cáo định kỳ để khách hàng dễ kiểm soát.",
     icon: BadgeCheck,
   },
   {
-    title: "Mạnh về nhà hàng - khách sạn - sự kiện",
+    title: "Triển khai TikTok Shop & social commerce",
     description:
-      "Danh mục dịch vụ và dự án tập trung nhiều vào trung tâm tiệc cưới, nhà hàng, bar, cafe, khách sạn và du lịch.",
+      "DST hỗ trợ thương hiệu xây dựng nội dung bán hàng, chuẩn bị livestream, phát triển gian hàng và kết nối KOC/KOL phù hợp.",
     icon: BriefcaseBusiness,
   },
 ];
@@ -191,26 +193,30 @@ export const whyChooseUs = [
 export const featuredCases: PartnerCase[] = [
   {
     title: "Valley Beach Club",
+    scope: "Fanpage, nội dung, thiết kế hình ảnh, quảng cáo",
     description:
-      "Quản trị fanpage, viết content, thiết kế hình ảnh và chạy ADS phủ sóng thương hiệu tại Quảng Ninh.",
+      "DST triển khai quản trị fanpage, nội dung, thiết kế hình ảnh và quảng cáo nhằm tăng độ phủ thương hiệu tại Quảng Ninh.",
     image: asset("assets/portfolio/profile-p68.webp"),
   },
   {
     title: "Hồ Cô Tiên",
+    scope: "Hình ảnh, video review, fanpage, nội dung F&B",
     description:
-      "Chụp ảnh sản phẩm, quay clip review, xây dựng và quản trị fanpage, thiết kế hình ảnh chuyên nghiệp.",
+      "DST sản xuất hình ảnh, video review, xây dựng fanpage và thiết kế nội dung truyền thông cho không gian F&B.",
     image: asset("assets/portfolio/profile-p70.webp"),
   },
   {
     title: "Bird's Nest Cafe",
+    scope: "Tư vấn truyền thông, nhận diện, quảng cáo online",
     description:
-      "Tư vấn truyền thông, xây dựng fanpage, thiết kế logo, bộ nhận diện và quảng cáo marketing online đa kênh.",
-    image: asset("assets/portfolio/profile-p70.webp"),
+      "DST tư vấn truyền thông, xây dựng fanpage, thiết kế nhận diện và triển khai quảng cáo online cho thương hiệu cafe.",
+    image: asset("assets/portfolio/portfolio-p10.webp"),
   },
   {
     title: "Diamond Palace - Hạ Long",
+    scope: "Tư vấn truyền thông, quảng cáo sự kiện",
     description:
-      "Tư vấn truyền thông và chạy ADS cho sự kiện triển lãm tiệc cưới tại trung tâm tiệc cưới Diamond Palace.",
+      "DST tư vấn truyền thông và triển khai quảng cáo cho các chương trình, sự kiện và hoạt động nổi bật tại Diamond Palace Hạ Long.",
     image: asset("assets/portfolio/profile-p71.webp"),
   },
 ];
@@ -218,49 +224,57 @@ export const featuredCases: PartnerCase[] = [
 export const galleryImages: GalleryImage[] = [
   {
     title: "Valley Beach Club",
-    category: "Sự kiện",
+    category: "Sân khấu & sự kiện",
+    detail: "Không gian sự kiện và hình ảnh triển khai tại điểm chạm thực tế.",
     src: asset("assets/project-photos/profile-p68-357.webp"),
     alt: "Không gian sự kiện Valley Beach Club",
   },
   {
     title: "Valley Beach Club",
-    category: "Hoạt động thực tế",
+    category: "Truyền thông sự kiện",
+    detail: "Hoạt động truyền thông, trải nghiệm khách hàng và chất liệu social.",
     src: asset("assets/project-photos/profile-p68-413.webp"),
     alt: "Khách hàng tham gia sự kiện Valley Beach Club",
   },
   {
     title: "Hồ Cô Tiên",
-    category: "Nhà hàng",
+    category: "Hình ảnh & nội dung",
+    detail: "Hình ảnh món ăn, không gian và nội dung dùng cho kênh truyền thông.",
     src: asset("assets/project-photos/profile-p70-552.webp"),
     alt: "Hình ảnh nhà hàng Hồ Cô Tiên",
   },
   {
     title: "Hồ Cô Tiên",
-    category: "Không gian F&B",
+    category: "Không gian & trải nghiệm",
+    detail: "Góc không gian giúp khách hàng hình dung trải nghiệm trước khi ghé thử.",
     src: asset("assets/project-photos/profile-p70-534.webp"),
     alt: "Không gian nội thất nhà hàng Hồ Cô Tiên",
   },
   {
     title: "Diamond Palace",
-    category: "Trung tâm tiệc cưới",
+    category: "Khách sạn & sự kiện",
+    detail: "Hình ảnh không gian phục vụ truyền thông chương trình và sự kiện.",
     src: asset("assets/project-photos/profile-p71-454.webp"),
     alt: "Hình ảnh Diamond Palace Hạ Long",
   },
   {
     title: "Taxi Xanh Đông Bắc",
-    category: "Dự án thương hiệu",
+    category: "Truyền thông thương hiệu",
+    detail: "Chất liệu hình ảnh hỗ trợ nhận diện và truyền thông thương hiệu.",
     src: asset("assets/project-photos/profile-p73-002.webp"),
     alt: "Hình ảnh dự án Taxi Xanh Đông Bắc",
   },
   {
     title: "Valley Beach Club",
-    category: "Thiết kế truyền thông",
+    category: "Poster & key visual",
+    detail: "Ấn phẩm line-up, visual sự kiện và nội dung quảng bá chương trình.",
     src: asset("assets/project-photos/profile-p69-016.webp"),
     alt: "Ấn phẩm truyền thông Valley Beach Club",
   },
   {
     title: "Valley Beach Club",
-    category: "Thiết kế truyền thông",
+    category: "Ấn phẩm sự kiện",
+    detail: "Banner chương trình và chất liệu truyền thông sử dụng trước sự kiện.",
     src: asset("assets/project-photos/profile-p69-699.webp"),
     alt: "Ấn phẩm chương trình Chi Đô Thôi Valley Beach Club",
   },
@@ -286,20 +300,24 @@ export const documentImages: GalleryImage[] = [
     alt: "Bảng dịch vụ thiết kế, quảng cáo online và website",
   },
   {
-    title: "Quyền lợi TikTok Shop",
-    category: "TikTok Shop Partner",
+    title: "TikTok Shop & Social",
+    category: "Tài liệu dịch vụ",
     src: asset("assets/portfolio/profile-p17.webp"),
-    alt: "Nội dung quyền lợi TikTok Shop Partner tại DST Group",
+    alt: "Nội dung dịch vụ TikTok Shop và social commerce tại DST Group",
   },
 ];
 
 export const serviceGroups = [
-  { label: "Marketing", icon: RadioTower },
-  { label: "Media", icon: Film },
-  { label: "ADS", icon: BarChart3 },
-  { label: "Booking", icon: Handshake },
+  { label: "Hình ảnh & nội dung", icon: Film },
+  { label: "Hồ sơ năng lực", icon: LayoutTemplate },
+  { label: "Quảng cáo đa kênh", icon: BarChart3 },
+  { label: "Setup truyền thông F&B", icon: Handshake },
 ];
 
-
-
-
+export const contactIcons = {
+  phone: Phone,
+  mail: Mail,
+  office: Building2,
+  social: RadioTower,
+  booking: UsersRound,
+};

@@ -4,17 +4,27 @@ interface GradientIconProps {
   icon: LucideIcon;
   label: string;
   className?: string;
+  tone?: "light" | "dark";
 }
 
-export function GradientIcon({ icon: Icon, label, className = "" }: GradientIconProps) {
+export function GradientIcon({
+  icon: Icon,
+  label,
+  className = "",
+  tone = "light",
+}: GradientIconProps) {
+  const isDark = tone === "dark";
+
   return (
     <span
       aria-label={label}
-      className={`icon-gradient relative inline-flex size-12 shrink-0 items-center justify-center rounded-xl text-white ring-1 ring-white/45 ${className}`}
+      className={`relative inline-flex size-11 shrink-0 items-center justify-center rounded-lg border ${
+        isDark
+          ? "border-white/18 bg-white/8 text-[#f4c77f]"
+          : "border-[#183f40]/12 bg-[#f6f3ec] text-[#9a651f]"
+      } ${className}`}
     >
-      <span className="pointer-events-none absolute right-1.5 top-1.5 size-2 rounded-full bg-[#42d4ff]" />
-      <span className="pointer-events-none absolute bottom-1.5 left-1.5 size-2 rounded-full bg-[#f36a5a]" />
-      <Icon aria-hidden="true" className="size-5" strokeWidth={2.1} />
+      <Icon aria-hidden="true" className="size-5" strokeWidth={2} />
     </span>
   );
 }

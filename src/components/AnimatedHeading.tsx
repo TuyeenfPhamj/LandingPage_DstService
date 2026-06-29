@@ -3,11 +3,16 @@ import { useEffect, useState } from "react";
 interface AnimatedHeadingProps {
   text: string;
   className?: string;
+  highlightedLineIndexes?: number[];
 }
 
 const charDelay = 30;
 
-export function AnimatedHeading({ text, className = "" }: AnimatedHeadingProps) {
+export function AnimatedHeading({
+  text,
+  className = "",
+  highlightedLineIndexes = [],
+}: AnimatedHeadingProps) {
   const [active, setActive] = useState(false);
   const lines = text.split("\n");
 
@@ -37,7 +42,11 @@ export function AnimatedHeading({ text, className = "" }: AnimatedHeadingProps) 
 
               return (
                 <span
-                  className="inline-block whitespace-nowrap"
+                  className={`inline-block whitespace-nowrap ${
+                    highlightedLineIndexes.includes(lineIndex)
+                      ? "bg-gradient-to-r from-[#f7c76f] via-white to-[#78d6df] bg-clip-text text-transparent"
+                      : ""
+                  }`}
                   key={`${token}-${lineIndex}-${tokenIndex}`}
                 >
                   {Array.from(token).map((char, charIndex) => {
