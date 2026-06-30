@@ -4,6 +4,7 @@ interface AnimatedHeadingProps {
   text: string;
   className?: string;
   highlightedLineIndexes?: number[];
+  highlightedPhrases?: string[];
 }
 
 const charDelay = 30;
@@ -12,6 +13,7 @@ export function AnimatedHeading({
   text,
   className = "",
   highlightedLineIndexes = [],
+  highlightedPhrases = [],
 }: AnimatedHeadingProps) {
   const [active, setActive] = useState(false);
   const lines = text.split("\n");
@@ -25,6 +27,13 @@ export function AnimatedHeading({
     <h1 className={className}>
       {lines.map((line, lineIndex) => {
         const lineLength = line.length;
+        const isHighlighted = highlightedLineIndexes.includes(lineIndex);
+        const phraseRanges = highlightedPhrases
+          .map((phrase) => {
+            const start = line.indexOf(phrase);
+            return start >= 0 ? { start, end: start + phrase.length } : null;
+          })
+          .filter((range): range is { start: number; end: number } => Boolean(range));
         let charOffset = 0;
         return (
           <span className="block md:whitespace-nowrap" key={`${line}-${lineIndex}`}>
@@ -42,18 +51,22 @@ export function AnimatedHeading({
 
               return (
                 <span
-                  className={`inline-block whitespace-nowrap ${
-                    highlightedLineIndexes.includes(lineIndex)
-                      ? "bg-gradient-to-r from-[#f7c76f] via-white to-[#78d6df] bg-clip-text text-transparent"
-                      : ""
-                  }`}
+                  className="inline-block whitespace-nowrap"
                   key={`${token}-${lineIndex}-${tokenIndex}`}
                 >
                   {Array.from(token).map((char, charIndex) => {
                     const absoluteCharIndex = start + charIndex;
+                    const isPhraseHighlighted = phraseRanges.some(
+                      (range) =>
+                        absoluteCharIndex >= range.start && absoluteCharIndex < range.end,
+                    );
                     return (
                       <span
-                        className="inline-block transition-[opacity,transform] duration-500"
+                        className={`inline-block transition-[opacity,transform] duration-500 ${
+                          isHighlighted || isPhraseHighlighted
+                            ? "bg-gradient-to-r from-[#f7c76f] via-white to-[#78d6df] bg-clip-text text-transparent"
+                            : ""
+                        }`}
                         key={`${char}-${lineIndex}-${absoluteCharIndex}`}
                         style={{
                           opacity: active ? 1 : 0,

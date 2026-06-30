@@ -102,3 +102,30 @@ video {
   scrollbar-width: thin;
   scrollbar-color: rgba(224, 157, 55, 0.9) rgba(24, 63, 64, 0.08);
 }
+
+.hero-grid {
+  background:
+    linear-gradient(115deg, rgba(224, 157, 55, 0.14) 0%, transparent 24%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: auto, 72px 72px, 72px 72px;
+}
+
+.hero-glow {
+  background:
+    radial-gradient(circle at 18% 32%, rgba(244, 199, 127, 0.16), transparent 26%),
+    radial-gradient(circle at 74% 58%, rgba(120, 214, 223, 0.10), transparent 28%);
+  animation: hero-glow-drift 18s ease-in-out infinite alternate;
+}
+
+@keyframes hero-glow-drift {
+  from {
+    transform: translate3d(-1.5%, -1%, 0) scale(1);
+    opacity: 0.72;
+  }
+
+  to {
+    transform: translate3d(1.5%, 1%, 0) scale(1.04);
+    opacity: 0.95;
+  }
+}

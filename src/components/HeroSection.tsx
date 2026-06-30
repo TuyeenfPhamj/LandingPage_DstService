@@ -1,157 +1,105 @@
-import { BarChart3, Film, Handshake, LayoutTemplate } from "lucide-react";
 import type { ReactNode } from "react";
+import { heroContent } from "../data/hero";
 import { AnimatedHeading } from "./AnimatedHeading";
 import { FadeIn } from "./FadeIn";
-import { GradientIcon } from "./GradientIcon";
 
 interface HeroSectionProps {
   nav: ReactNode;
 }
 
-const asset = (path: string) =>
-  `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
-
-const heroVisuals = [
-  asset("assets/project-photos/profile-p68-357.webp"),
-  asset("assets/project-photos/profile-p70-552.webp"),
-];
-
-const heroCapabilities = [
-  {
-    label: "Hình ảnh & nội dung",
-    description: "Quay chụp, thiết kế, bài viết và video dùng được ngay cho social.",
-    icon: Film,
-  },
-  {
-    label: "Hồ sơ năng lực",
-    description: "Profile, proposal và tài liệu tư vấn giúp khách hiểu nhanh năng lực.",
-    icon: LayoutTemplate,
-  },
-  {
-    label: "Quảng cáo đa kênh",
-    description: "Thiết lập, theo dõi ngân sách và tối ưu theo mục tiêu chiến dịch.",
-    icon: BarChart3,
-  },
-  {
-    label: "Setup truyền thông F&B",
-    description: "Định hướng điểm chạm cho nhà hàng, khách sạn và sự kiện.",
-    icon: Handshake,
-  },
-];
-
 export function HeroSection({ nav }: HeroSectionProps) {
   return (
     <section
-      className="relative flex min-h-screen overflow-hidden bg-[#183f40] text-white"
+      className="relative flex min-h-[760px] overflow-hidden bg-[#143d3d] text-white lg:min-h-screen"
       id="top"
     >
-      <div className="absolute inset-0">
-        <img
-          alt="Dự án truyền thông và sự kiện DST Group"
-          className="h-full w-full object-cover"
-          src={heroVisuals[0]}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#102f30]/96 via-[#183f40]/88 to-[#102f30]/72" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#183f40] to-transparent" />
-      </div>
+      <div className="absolute inset-0 bg-[linear-gradient(135deg,#102f30_0%,#173f40_48%,#245354_100%)]" />
+      <div className="hero-grid absolute inset-0" />
+      <div className="hero-glow absolute inset-0" />
+      <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#0c292a]/60 to-transparent" />
+      <div className="absolute right-0 top-0 hidden h-full w-[46%] bg-[linear-gradient(110deg,transparent,rgba(244,199,127,0.10)_42%,rgba(255,255,255,0.05))] lg:block" />
 
-      <div className="relative z-10 flex min-h-screen w-full flex-col">
+      <div className="relative z-10 flex w-full flex-1 flex-col">
         {nav}
 
-        <div className="flex flex-1 flex-col justify-end px-6 pb-12 md:px-12 lg:px-16 lg:pb-16">
-          <div className="mx-auto grid w-full max-w-[1180px] gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
-            <div className="max-w-3xl">
-              <FadeIn delay={300} duration={800}>
-                <p className="mb-5 inline-flex rounded-lg border border-white/16 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#f4c77f] backdrop-blur">
-                  DST Marketing - Media
+        <div className="flex flex-1 items-center px-6 pb-10 pt-8 md:px-12 md:pb-14 lg:px-16 lg:pb-16">
+          <div className="mx-auto grid w-full max-w-[1180px] gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,380px)] lg:items-center lg:gap-12">
+            <div className="max-w-[640px]">
+              <FadeIn delay={240} duration={700}>
+                <p className="mb-5 inline-flex items-center rounded-full border border-white/20 bg-black/15 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#f3b94e] backdrop-blur-sm">
+                  {heroContent.badge}
                 </p>
               </FadeIn>
 
               <AnimatedHeading
-                className="mb-5 text-[34px] font-normal leading-[1.06] text-white sm:text-4xl md:text-5xl lg:text-5xl xl:text-[56px]"
-                highlightedLineIndexes={[2]}
-                text={"Truyền thông rõ ràng\nđể khách hàng hiểu, tin\nvà chọn thương hiệu của bạn"}
+                className="mb-6 max-w-[15ch] pb-4 text-left text-[clamp(2.5rem,4.45vw,4.6rem)] font-medium leading-[1.15] tracking-[-0.04em] text-white [overflow-wrap:anywhere] [text-wrap:balance] drop-shadow-[0_4px_24px_rgba(0,0,0,0.22)]"
+                highlightedPhrases={[heroContent.highlightedPhrase]}
+                text={heroContent.title}
               />
 
-              <FadeIn delay={800} duration={1000}>
-                <p className="max-w-2xl text-base leading-7 text-gray-200 md:text-lg">
-                  DST Group đồng hành cùng doanh nghiệp xây dựng hình ảnh, nội dung,
-                  social media, quảng cáo và các tài liệu truyền thông hỗ trợ khách
-                  hàng hiểu rõ dịch vụ và ra quyết định nhanh hơn.
+              <FadeIn delay={720} duration={900}>
+                <p className="max-w-[560px] text-sm leading-relaxed text-white/85 drop-shadow-[0_2px_12px_rgba(0,0,0,0.22)] md:text-base">
+                  {heroContent.description}
                 </p>
               </FadeIn>
 
-              <FadeIn delay={1200} duration={1000}>
-                <div className="mt-6 flex flex-wrap gap-4">
+              <FadeIn delay={1040} duration={900}>
+                <div className="mt-7 flex flex-col gap-3 min-[420px]:flex-row">
                   <a
-                    className="rounded-lg bg-white px-8 py-3 font-medium text-black transition hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+                    className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3.5 font-semibold text-slate-950 shadow-lg shadow-black/20 transition hover:bg-white/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
                     href="#lien-he"
                   >
-                    Nhận tư vấn
+                    {heroContent.primaryCta}
                   </a>
                   <a
-                    className="liquid-glass rounded-lg border border-white/20 px-8 py-3 font-medium text-white transition hover:bg-white hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+                    className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-black/20 px-6 py-3.5 font-medium text-white backdrop-blur-sm transition-all hover:bg-white hover:text-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
                     href="#dich-vu"
                   >
-                    Xem năng lực
+                    {heroContent.secondaryCta}
                   </a>
                 </div>
               </FadeIn>
             </div>
 
-            <FadeIn delay={1000} duration={1000}>
-              <div className="grid gap-4 lg:max-w-[500px]">
-                <div className="overflow-hidden rounded-2xl border border-white/16 bg-white/10 p-2 backdrop-blur">
-                  <img
-                    alt="Chất liệu dự án DST Group"
-                    className="h-[220px] w-full rounded-xl object-cover md:h-[280px] lg:h-[240px]"
-                    src={heroVisuals[1]}
-                  />
-                </div>
+            <FadeIn delay={880} duration={900}>
+              <aside className="mx-auto w-full max-w-[380px] rounded-[28px] border border-white/12 bg-[#2d3f3c]/42 p-3 shadow-[0_24px_70px_rgba(0,0,0,0.20)] backdrop-blur-md lg:mx-0 lg:justify-self-end">
+                <img
+                  alt="Chất liệu truyền thông thực tế DST Group"
+                  className="aspect-[16/9] w-full rounded-[22px] object-cover"
+                  src={heroContent.cardImage}
+                />
 
-                <div className="rounded-2xl border border-white/16 bg-white/10 p-5 backdrop-blur md:p-6">
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#f4c77f]">
-                    Một đầu mối triển khai
+                <div className="px-2 pb-2 pt-4">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#f3b94e]">
+                    Năng lực nổi bật
                   </p>
-                  <h2 className="mt-3 text-2xl font-semibold leading-tight text-white md:text-3xl">
-                    Từ hình ảnh đầu tiên đến{" "}
-                    <span className="bg-gradient-to-r from-[#f7c76f] via-white to-[#82dce3] bg-clip-text text-transparent">
-                      nội dung hỗ trợ bán hàng.
-                    </span>
+                  <h2 className="mt-3 text-2xl font-semibold leading-tight text-white md:text-[26px]">
+                    Từ hình ảnh đầu tiên đến hành trình bán hàng rõ ràng.
                   </h2>
-                  <p className="mt-4 max-w-md text-sm leading-6 text-white/72 md:text-base md:leading-7">
-                    DST kết nối media, nội dung, quảng cáo và tài liệu tư vấn trong
-                    cùng một kế hoạch để thương hiệu xuất hiện rõ ràng hơn ở mọi điểm
-                    chạm.
+                  <p className="mt-3 text-sm leading-6 text-white/74">
+                    DST kết nối media, nội dung, quảng cáo và tài liệu tư vấn
+                    thành một hệ thống truyền thông dễ hiểu, dễ triển khai.
                   </p>
-                </div>
 
-                <div className="grid gap-3">
-                  {heroCapabilities.map((item) => (
-                    <div
-                      className="rounded-xl border border-white/14 bg-white/9 p-4 backdrop-blur md:p-5"
-                      key={item.label}
-                    >
-                      <div className="flex items-start gap-4">
-                        <GradientIcon
-                          className="size-10"
-                          icon={item.icon}
-                          label={item.label}
-                          tone="dark"
+                  <div className="mt-4 grid grid-cols-3 gap-2">
+                    {heroContent.capabilities.map((item) => (
+                      <div
+                        className="min-h-[92px] rounded-xl border border-white/10 bg-white/[0.07] p-3 transition hover:bg-white/[0.11]"
+                        key={item.label}
+                      >
+                        <item.icon
+                          aria-hidden="true"
+                          className="size-5 text-[#f3b94e]"
+                          strokeWidth={2}
                         />
-                        <div className="min-w-0">
-                          <h3 className="text-base font-semibold leading-6 text-white">
-                            {item.label}
-                          </h3>
-                          <p className="mt-1.5 text-sm leading-6 text-white/72">
-                            {item.description}
-                          </p>
-                        </div>
+                        <p className="mt-3 text-[12px] font-semibold leading-4 text-white">
+                          {item.label}
+                        </p>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </aside>
             </FadeIn>
           </div>
         </div>
