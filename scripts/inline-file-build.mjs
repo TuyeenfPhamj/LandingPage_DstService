@@ -37,6 +37,13 @@ for (const [match, src] of scriptMatches) {
   html = html.replace(match, () => replacement);
 }
 
+const inlineScriptMatch = html.match(/<script>\n[\s\S]*?\n<\/script>/);
+if (inlineScriptMatch) {
+  html = html.replace(inlineScriptMatch[0], "");
+  const scriptAtEnd = `    ${inlineScriptMatch[0]}\n  </body>`;
+  html = html.replace("</body>", () => scriptAtEnd);
+}
+
 html = html.replace(
   "<head>",
   "<head>\n    <!-- This build is prepared for direct file opening. Keep the assets folder beside this file for images. -->",
